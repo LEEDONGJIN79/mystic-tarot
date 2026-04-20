@@ -562,6 +562,51 @@ function draw() {
 
 drawBtn.addEventListener("click", draw);
 
+// ========== PNG 저장 ==========
+const saveBtn = document.getElementById("save-btn");
+if (saveBtn) {
+  saveBtn.addEventListener("click", async () => {
+    if (typeof html2canvas !== "function") {
+      alert("이미지 저장 라이브러리가 로드되지 않았습니다.");
+      return;
+    }
+    saveBtn.disabled = true;
+    saveBtn.textContent = "생성 중…";
+
+    // export 시에만 숨길 요소 / 보일 요소
+    const hideEls = document.querySelectorAll(".export-hide");
+    const onlyEls = document.querySelectorAll(".export-only");
+    hideEls.forEach((el) => (el.style.visibility = "hidden"));
+    onlyEls.forEach((el) => (el.style.display = "block"));
+
+    try {
+      const target = document.getElementById("result");
+      const canvas = await html2canvas(target, {
+        backgroundColor: "#0b0420",
+        scale: Math.min(2, window.devicePixelRatio || 1),
+        useCORS: true,
+        logging: false,
+        windowWidth: document.documentElement.scrollWidth,
+      });
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2, "0");
+      const ts = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
+      const link = document.createElement("a");
+      link.download = `delpy-tarot-${ts}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } catch (err) {
+      console.error(err);
+      alert("이미지 저장 중 오류가 발생했습니다: " + err.message);
+    } finally {
+      hideEls.forEach((el) => (el.style.visibility = ""));
+      onlyEls.forEach((el) => (el.style.display = ""));
+      saveBtn.disabled = false;
+      saveBtn.textContent = "📷 이미지로 저장";
+    }
+  });
+}
+
 againBtn.addEventListener("click", () => {
   resultEl.classList.add("hidden");
   setupEl.classList.remove("hidden");
