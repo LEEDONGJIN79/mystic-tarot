@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a0b3d" />
+  <meta name="description" content="78장의 라이더-웨이트-스미스 타로 덱으로 보는 무료 온라인 타로 리딩. 예/아니오, 쓰리카드, 켈틱 크로스까지 10가지 스프레드 지원." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="미스틱 타로" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- 파비콘 -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon.svg" />
+
+  <!-- Open Graph (카카오톡, 페이스북 등 SNS 미리보기) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="미스틱 타로 — 78장 완전 덱" />
+  <meta property="og:description" content="78장의 카드가 당신의 이야기를 들려드립니다. 오늘의 한 장부터 켈틱 크로스까지 10가지 스프레드." />
+  <meta property="og:image" content="images/19-sun.jpg" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="미스틱 타로" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="미스틱 타로 — 78장 완전 덱" />
+  <meta name="twitter:description" content="78장의 카드가 당신의 이야기를 들려드립니다." />
+  <meta name="twitter:image" content="images/19-sun.jpg" />
+
+  <title>미스틱 타로 — 78장 완전 덱</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars"></div>
+
+  <main class="container">
+    <header class="hero">
+      <h1>✦ 미스틱 타로 ✦</h1>
+      <p class="subtitle">78장의 카드가 당신의 이야기를 들려드립니다</p>
+    </header>
+
+    <!-- 학습 섹션 (접을 수 있음) -->
+    <section class="panel learn-panel">
+      <button id="learn-toggle" class="learn-toggle">
+        <span>📖 타로 학습하기 — 바보의 여정 · 숫자 · 수트 · 역방향</span>
+        <span class="learn-chevron">▾</span>
+      </button>
+      <div id="learn-body" class="learn-body hidden">
+        <div class="learn-tabs">
+          <button class="learn-tab active" data-tab="journey">바보의 여정</button>
+          <button class="learn-tab" data-tab="numbers">숫자의 의미</button>
+          <button class="learn-tab" data-tab="suits">4원소 · 수트</button>
+          <button class="learn-tab" data-tab="frames">역방향 5프레임</button>
+        </div>
+        <div id="learn-content" class="learn-content"></div>
+        <p class="learn-source">참고: <a href="https://tarothub.kr/" target="_blank" rel="noopener">tarothub.kr 타로 가이드</a></p>
+      </div>
+    </section>
+
+    <section id="setup" class="panel">
+      <label for="question">마음속 질문을 적어보세요 (선택)</label>
+      <input type="text" id="question" placeholder="예: 지금 하는 일은 어떻게 흘러갈까요?" maxlength="80" />
+      <div class="question-tip" id="question-tip"></div>
+
+      <div class="spread-select">
+        <p class="label">스프레드 선택</p>
+        <div id="spread-options" class="spread-options-grouped"></div>
+        <div id="spread-info" class="spread-info"></div>
+      </div>
+
+      <button id="draw-btn" class="draw-btn">카드 섞고 뽑기 🔮</button>
+    </section>
+
+    <section id="result" class="panel hidden">
+      <h2 id="result-title"></h2>
+      <p id="result-question" class="result-question"></p>
+      <div id="yesno-result" class="yesno-result hidden"></div>
+      <div id="cards" class="cards"></div>
+      <div id="summary" class="summary hidden"></div>
+      <button id="again-btn" class="again-btn">다시 뽑기</button>
+    </section>
+
+    <footer class="etiquette">
+      <h4>✦ 리딩 에티켓 ✦</h4>
+      <ul>
+        <li>같은 질문을 반복하지 마세요. 원하는 답을 찾으려는 편향이 생기며 첫 리딩의 메시지가 흐려집니다.</li>
+        <li>감정적으로 격앙된 상태에서는 리딩을 피하고 잠시 호흡을 가다듬으세요.</li>
+        <li>타로는 <strong>고정된 운명</strong>이 아니라 <strong>현재 에너지의 흐름</strong>을 비추는 거울입니다. 모든 선택은 당신의 몫입니다.</li>
+        <li>부정적으로 보이는 카드(죽음·탑·악마 등)도 성찰과 변화의 귀중한 안내자입니다. 두려워하지 마세요.</li>
+        <li>의료·법률·재정 결정은 전문가와 상의하세요. 본 서비스는 오락·자기 성찰 목적으로 운영됩니다.</li>
+      </ul>
+    </footer>
+  </main>
+
+  <script src="cards.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

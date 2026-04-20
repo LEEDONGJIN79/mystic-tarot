@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap은 배포 후 실제 도메인으로 업데이트하세요.
+# Sitemap: https://your-domain.vercel.app/sitemap.xml
