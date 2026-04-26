@@ -592,7 +592,7 @@ if (saveBtn) {
       const pad = (n) => String(n).padStart(2, "0");
       const ts = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
       const link = document.createElement("a");
-      link.download = `delpy-tarot-${ts}.png`;
+      link.download = `venticello-tarot-${ts}.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
     } catch (err) {

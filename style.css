@@ -67,6 +67,29 @@ body {
 }
 .hero .subtitle { color: var(--text-dim); font-size: 15px; letter-spacing: 0.04em; }
 
+.venue-link {
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+.venue-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(231, 199, 122, 0.4);
+  border-radius: 999px;
+  background: rgba(231, 199, 122, 0.06);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.venue-link a:hover {
+  background: rgba(231, 199, 122, 0.14);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
 .panel {
   background: rgba(30, 12, 66, 0.55);
   border: 1px solid rgba(231, 199, 122, 0.2);
